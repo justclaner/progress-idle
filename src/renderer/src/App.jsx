@@ -43,9 +43,11 @@ function App() {
 					</a>
 				</div>
 			</div>
-			{/* <div>
-				<p>Gold: {gold}</p>
-				<button onClick={handleAddGold}>+1 Gold</button>
+			{/* <div className="flex flex-col items-center p-4 bg-gray-900 text-white">
+				<p className="text-2xl font-bold">Gold: 1234</p>
+				<button className="mt-2 px-4 py-2 bg-yellow-500 rounded hover:bg-yellow-400">
+					+1 Gold
+				</button>
 			</div> */}
 			<Versions></Versions>
 		</>

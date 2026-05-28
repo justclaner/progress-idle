@@ -20,8 +20,10 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.2",
     "@electron-toolkit/utils": "^4.0.0",
+    "@tailwindcss/vite": "^4.3.0",
     "electron-store": "^8.2.0",
-    "electron-updater": "^6.3.9"
+    "electron-updater": "^6.3.9",
+    "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^2.1.0",
