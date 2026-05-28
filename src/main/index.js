@@ -1,7 +1,10 @@
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import Store from 'electron-store'
 import icon from '../../resources/icon.png?asset'
+
+const store = new Store()
 
 function createWindow() {
   // Create the browser window.
@@ -51,6 +54,10 @@ app.whenReady().then(() => {
 
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
+  
+  ipcMain.handle('store-get', (_, key) => store.get(key))
+  ipcMain.handle('store-set', (_, key, value) => store.set(key, value))
+  ipcMain.handle('store-delete', (_, key) => store.delete(key))
 
   createWindow()
 
