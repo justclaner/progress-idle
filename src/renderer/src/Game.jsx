@@ -2,6 +2,8 @@ import { useState, useEffect, Context } from 'react';
 import Title from './pages/Title.jsx';
 import UI from './components/UI.jsx';
 
+import { getSave } from './utils/save.js';
+
 const debug = true;
 
 const Game = () => {
@@ -9,20 +11,13 @@ const Game = () => {
   const [save, setSave] = useState({});
   useEffect(() => {
     const loadSave = async () => {
-      const save = await window.store.get('save');
+      const save = await getSave(debug);
       if (save) {
         setSave(save);
       }
     };
     loadSave();
   }, []);
-
-  useEffect(() => {
-    if (debug) {
-      console.log('save was updated!');
-      console.log(save);
-    }
-  }, [save]);
 
   const [onTitle, setOnTitle] = useState(true);
 

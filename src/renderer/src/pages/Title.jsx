@@ -1,17 +1,26 @@
 import React from 'react';
+import UIButton from '../components/UIButton';
+
+import { clearSave } from '../utils/save';
+
+const debug = true;
 
 const Title = ({ setOnTitle }) => {
   return (
     <div className='absolute left-1/2 -translate-x-1/2 top-[30%] flex flex-col gap-5 items-center'>
       <h1>Progress Idle</h1>
-      <button
-        className='border-2 border-black rounded-xl px-2 py-1 w-fit hover:bg-neutral-400 active:bg-neutral-300 duration-75'
-        onClick={() => {
+      <UIButton
+        callbackFunction={() => {
           setOnTitle(false);
         }}
       >
         <h2>Play</h2>
-      </button>
+      </UIButton>
+      {debug && (
+        <UIButton callbackFunction={async () => await clearSave(debug)}>
+          <h3>Clear Save</h3>
+        </UIButton>
+      )}
     </div>
   );
 };
