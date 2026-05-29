@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import Versions from './components/Versions'
-import electronLogo from './assets/electron.svg'
 
 function App() {
 	//const [gold, setGold] = useState(0)
