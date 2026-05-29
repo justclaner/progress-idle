@@ -1,11 +1,12 @@
 import { useState, useEffect, Context } from 'react';
+import Title from './pages/Title.jsx';
+import UI from './components/UI.jsx';
 
 const debug = true;
 
 const Game = () => {
-  const [save, setSave] = useState({});
-
   // Access save on loadup
+  const [save, setSave] = useState({});
   useEffect(() => {
     const loadSave = async () => {
       const save = await window.store.get('save');
@@ -23,7 +24,9 @@ const Game = () => {
     }
   }, [save]);
 
-  return <div>Game</div>;
+  const [onTitle, setOnTitle] = useState(true);
+
+  return <div>{onTitle ? <Title setOnTitle={setOnTitle} /> : <UI />}</div>;
 };
 
 export default Game;
